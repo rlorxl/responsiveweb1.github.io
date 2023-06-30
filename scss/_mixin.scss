@@ -1,0 +1,31 @@
+@import './default';
+
+@include keyframe(slide-r) {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0; // 자연스러운 모션효과를 위한 opacity
+    transform: translateX(60px);
+  }
+}
+
+@include keyframe(slide-l) {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}
+
+@include keyframe(slideY) {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}

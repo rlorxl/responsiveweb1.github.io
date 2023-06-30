@@ -1,0 +1,31 @@
+@import './default';
+
+@mixin desktop-m {
+  @media (max-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin desktop-m {
+  @media (max-width: #{$breakpoint-desktop-m}) {
+    @content;
+  }
+}
+
+@mixin desktop-s {
+  @media (max-width: #{$breakpoint-desktop-s}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}

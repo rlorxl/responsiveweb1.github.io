@@ -1,0 +1,23 @@
+{
+  "name": "dior",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p watch server",
+    "sass": "sass scss:css",
+    "watch": "npm run sass -- --watch",
+    "nomap": "npm run sass -- --no-source-map",
+    "server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "responsive"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.63.6"
+  }
+}
