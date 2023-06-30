@@ -14,15 +14,15 @@ let filmSize = Math.floor(carousel.offsetWidth / 1.14);
 const data = [
   {
     name: 'film1',
-    thumb: '../images/film1.jpeg',
+    thumb: './images/film1.jpeg',
   },
   {
     name: 'film2',
-    thumb: '../images/film2.webp',
+    thumb: './images/film2.webp',
   },
   {
     name: 'film3',
-    thumb: '../images/film3.webp',
+    thumb: './images/film3.webp',
   },
 ];
 
