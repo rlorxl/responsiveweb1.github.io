@@ -1,31 +1,26 @@
 @import './default';
 
-@include keyframe(slide-r) {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0; // 자연스러운 모션효과를 위한 opacity
-    transform: translateX(60px);
+@include keyframe(pilloff) {
+  100% {
+    width: 0;
   }
 }
 
-@include keyframe(slide-l) {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-    transform: translateX(-60px);
+@include keyframe(pilloff-1) {
+  100% {
+    transform: translate(100%);
   }
 }
 
-@include keyframe(slideY) {
-  0% {
-    opacity: 0;
+@include keyframe(fadein) {
+  100% {
+    opacity: 1;
   }
-  40% {
-    opacity: 0;
-    transform: translateY(15px);
+}
+
+@include keyframe(slidein) {
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }

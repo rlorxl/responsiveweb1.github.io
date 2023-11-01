@@ -1,16 +1,3 @@
-const carousel = document.querySelector('.film-carousel');
-const itemContainer = document.querySelector('.film-item-wrap');
-const filmTxt = document.querySelector('.text-wrap');
-
-const prevButton = document.querySelector('#prev');
-const nextButton = document.querySelector('#next');
-
-let carouselItem = document.querySelectorAll('.film-item-wrap .imgBox');
-let position = 0;
-let idx = 1;
-let counter = carouselItem.length;
-let filmSize = Math.floor(carousel.offsetWidth / 1.14);
-
 const data = [
   {
     name: 'film1',
@@ -44,74 +31,89 @@ const text = [
   },
 ];
 
-renderImages();
-function renderImages() {
-  data.forEach((item) => {
-    itemContainer.innerHTML += `
-        <div class="imgBox">
-            <div class="item"><img src="${item.thumb}" alt="${item.name}"></div>
-        </div>
-        `;
+(function () {
+  const carousel = document.querySelector('.film-carousel');
+  const itemContainer = document.querySelector('.film-item-wrap');
+  let carouselItem = document.querySelectorAll('.film-item-wrap .imgBox');
+  const filmTxt = document.querySelector('.text-wrap');
+  const prevButton = document.querySelector('#prev');
+  const nextButton = document.querySelector('#next');
+  let position = 0;
+  let idx = 1;
+  let filmSize = Math.floor(carousel.offsetWidth / 1.14);
+
+  function renderImages() {
+    data.forEach((item) => {
+      itemContainer.innerHTML += `
+          <div class="imgBox">
+              <div class="item"><img src="${item.thumb}" alt="${item.name}"></div>
+          </div>
+          `;
+    });
+  }
+
+  function renderText() {
+    filmTxt.innerHTML = `
+      <h3>${text[position].title}</h3>
+      <p>${text[position].description}</p>
+      `;
+  }
+
+  function init(firstTime = true) {
+    carouselItem.forEach((image, index) => {
+      index++;
+
+      const newSize = firstTime
+        ? filmSize * index
+        : filmSize * index - filmSize * position;
+
+      if (newSize === filmSize) {
+        image.style.transform = `scale(1)`;
+        image.style.opacity = '1';
+        image.style.marginLeft = '0';
+        image.style.zIndex = '2';
+      } else {
+        image.style.transform = `translateX(${newSize / 2 - 300}px) scale(.8)`;
+        image.style.opacity = '0.4';
+        image.style.zIndex = '1';
+      }
+    });
+  }
+
+  function changeNum() {
+    const cardIdx = document.querySelector('.card-idx');
+    cardIdx.innerText = `${idx}/3`;
+  }
+
+  function ani() {
+    carouselItem.forEach((item) => {
+      item.style.cssText = 'transition : .5s ease-out';
+    });
+  }
+
+  nextButton.addEventListener('click', () => {
+    if (position >= 2) return false;
+    ani();
+    position++;
+    renderText();
+    changeNum(idx++);
+    init(false);
   });
-}
 
-renderText();
-function renderText() {
-  filmTxt.innerHTML = `
-    <h3>${text[position].title}</h3>
-    <p>${text[position].description}</p>
-    `;
-}
-
-carouselItem = document.querySelectorAll('.film-item-wrap .imgBox');
-
-init();
-function init(firstTime = true) {
-  carouselItem.forEach((image, index) => {
-    index++;
-
-    const newSize = firstTime
-      ? filmSize * index
-      : filmSize * index - filmSize * position;
-
-    if (newSize === filmSize) {
-      image.style.transform = `scale(1)`;
-      image.style.opacity = '1';
-      image.style.marginLeft = '0';
-      image.style.zIndex = '2';
-    } else {
-      image.style.transform = `translateX(${newSize / 2 - 300}px) scale(.8)`;
-      image.style.opacity = '0.4';
-      image.style.zIndex = '1';
-    }
+  prevButton.addEventListener('click', () => {
+    if (position === 0) return false;
+    ani();
+    position--;
+    renderText();
+    changeNum(idx--);
+    init(false);
   });
-}
 
-changeNum();
-function changeNum() {
-  const cardIdx = document.querySelector('.card-idx');
-  cardIdx.innerText = `${idx}/3`;
-}
-
-nextButton.addEventListener('click', () => {
-  if (position >= 2) return false;
-  ani();
-  position++;
-  renderText();
-  changeNum(idx++);
-  init(false);
-});
-prevButton.addEventListener('click', () => {
-  if (position === 0) return false;
-  ani();
-  position--;
-  renderText();
-  changeNum(idx--);
-  init(false);
-});
-
-function ani() {
-  carouselItem.forEach((item) => {
-    item.style.cssText = 'transition : .5s ease-out';
+  window.addEventListener('DOMContentLoaded', () => {
+    renderImages();
+    renderText();
+    carouselItem = document.querySelectorAll('.film-item-wrap .imgBox');
+    init();
+    changeNum();
   });
-}
+})();

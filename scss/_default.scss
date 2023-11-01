@@ -136,10 +136,9 @@ $font-weights: (
   'medium': 500,
   'bold': 700,
 );
-
 $dark: #222;
 $black: rgb(68, 63, 58);
-$white: #fff;
+$white: #eee;
 $light-color: rgb(163, 163, 163);
 $brown: rgb(181, 149, 120);
 $light-brown: rgb(231, 230, 227);
@@ -169,8 +168,10 @@ button {
 
 html {
   font-family: 'Readex Pro', sans-serif;
-  color: #555;
+  // color: #555;
+  color: #eee;
   line-height: 1.2;
+  background: #222;
 }
 
 h2 {
@@ -195,7 +196,7 @@ h2 {
   $delay: 0,
   $count: 1,
   $direction: normal,
-  $fillmode: none
+  $fillmode: forwards
 ) {
   animation-name: $animation;
   animation-duration: $duration;
@@ -205,6 +206,7 @@ h2 {
   animation-direction: $direction;
   animation-fill-mode: $fillmode;
 }
+
 @mixin keyframe($animation_name) {
   @keyframes #{$animation_name} {
     @content;
