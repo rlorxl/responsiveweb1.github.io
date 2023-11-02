@@ -1,0 +1,99 @@
+.insights,
+.insights2 {
+  .content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 7rem;
+
+    .insight-img1,
+    .insight-img2 {
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $brown;
+      }
+    }
+
+    .insight-img1 {
+      flex: 1 1 40rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .insight-img2 {
+      flex: 1 1 65rem;
+    }
+
+    .insight-txt {
+      width: 40%;
+      flex: 1 1 40rem;
+      & * {
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: translateY(50%);
+      }
+      h3 {
+        font-size: 1.8rem;
+      }
+      p {
+        white-space: pre-line;
+        line-height: 1.5;
+      }
+      .en {
+        margin-bottom: 10px;
+        color: $brown;
+        font-weight: map-get($font-weights, medium);
+        text-transform: uppercase;
+        width: fit-content;
+        overflow: hidden;
+        opacity: 0;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: $brown;
+        }
+      }
+    }
+  }
+
+  &.motion {
+    .insight-img1::after,
+    .insight-img2::after {
+      @include animation(pilloff, 0.6s, ease-in, 0s);
+    }
+    .insight-txt {
+      .en::after {
+        @include animation(pilloff-1, 0.5s, ease-in, 0.7s);
+      }
+      h3 {
+        @include animation(slidein, 0.6s, ease-out, 0.5s);
+      }
+      p {
+        @include animation(slidein, 0.6s, ease-out, 0.7s);
+      }
+      a {
+        @include animation(slidein, 0.6s, ease-out, 0.9s);
+      }
+    }
+  }
+}
+
+.insights2 {
+  padding-top: 0;
+  padding-right: 0;
+}

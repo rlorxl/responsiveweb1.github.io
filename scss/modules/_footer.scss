@@ -1,0 +1,64 @@
+.footer {
+  background-color: $light-brown;
+  padding: 4rem 17%;
+  padding-bottom: 3rem;
+  color: rgb(111, 91, 68);
+  font-size: 0.9rem;
+  a {
+    color: rgb(111, 91, 68);
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .footer-gnb {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    .footer-left {
+      width: 55%;
+      display: flex;
+      justify-content: space-between;
+      img {
+        min-width: 100px;
+      }
+      ul {
+        padding-left: 50px;
+        &:nth-child(3) {
+          border: none;
+        }
+        li {
+          margin-bottom: 10px;
+        }
+        i {
+          margin-right: 12px;
+        }
+      }
+    }
+    .footer-right {
+      form {
+        margin-top: 1rem;
+        border: 1px solid rgb(111, 91, 68);
+        input {
+          border: none;
+          outline: none;
+        }
+        input[type='email'] {
+          background: transparent;
+          padding: 0.5rem;
+        }
+        input[type='submit'] {
+          background: rgb(111, 91, 68);
+          padding: 0.5rem 0.8rem;
+          color: $white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .copyrightText {
+    text-align: center;
+    opacity: 0.6;
+    white-space: pre-line;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+}

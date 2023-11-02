@@ -1,0 +1,49 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  z-index: 100;
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: $white;
+  }
+
+  .menu,
+  .menu-icons {
+    display: flex;
+  }
+
+  .menu {
+    a {
+      padding: 0.7rem;
+      margin: 0 3rem;
+      color: $black;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: map-get($font-weights, medium);
+    }
+  }
+
+  .menu-right {
+    display: flex;
+  }
+
+  .menu-icons {
+    margin-right: 4rem;
+    li {
+      margin-right: 18px;
+    }
+  }
+
+  select {
+    border: none;
+    background: transparent;
+  }
+}

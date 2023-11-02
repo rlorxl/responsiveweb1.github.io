@@ -520,66 +520,7 @@ h2 {
     transform: translate(0, 0);
   }
 }
-.btn-primary {
-  display: inline-block;
-  height: 48px;
-  padding: 10px 40px;
-  text-transform: uppercase;
-  border: 1px solid rgb(181, 149, 120);
-  color: rgb(181, 149, 120);
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Readex Pro", sans-serif;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-.btn-primary::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgb(181, 149, 120);
-  z-index: -1;
-  transition: transform 0.7s ease-out;
-  transform: scaleX(0);
-  transform-origin: bottom left;
-}
-.btn-primary:hover::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.btn-primary:hover {
-  color: #eee;
-  transition: all 0.7s;
-}
-
-.bgcolor {
-  width: 70%;
-  height: 100vh;
-  background: rgb(231, 230, 227);
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-section {
-  padding: 6rem 6%;
-}
-
-h2 {
-  font-size: 3.5rem;
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 85px;
-}
-
-header {
+.header {
   position: absolute;
   top: 0;
   left: 0;
@@ -590,16 +531,16 @@ header {
   padding: 2rem 4rem;
   z-index: 100;
 }
-header .logo {
+.header .logo {
   font-family: "DM Serif Display", serif;
   font-size: 4rem;
   color: #eee;
 }
-header .menu,
-header .menu-icons {
+.header .menu,
+.header .menu-icons {
   display: flex;
 }
-header .menu a {
+.header .menu a {
   padding: 0.7rem;
   margin: 0 3rem;
   color: rgb(68, 63, 58);
@@ -607,16 +548,16 @@ header .menu a {
   text-transform: uppercase;
   font-weight: 500;
 }
-header .menu-right {
+.header .menu-right {
   display: flex;
 }
-header .menu-right .menu-icons {
+.header .menu-icons {
   margin-right: 4rem;
 }
-header .menu-right .menu-icons li {
+.header .menu-icons li {
   margin-right: 18px;
 }
-header .menu-right select {
+.header select {
   border: none;
   background: transparent;
 }
@@ -631,15 +572,6 @@ header .menu-right select {
   margin-bottom: 200px;
   overflow: hidden;
 }
-.visual::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 4%;
-  width: calc(300px + 26vw);
-  height: 100%;
-  background: rgb(181, 149, 120);
-}
 .visual .main-text {
   width: 50%;
   margin-top: 155px;
@@ -648,27 +580,27 @@ header .menu-right select {
   left: 4%;
   color: rgb(181, 149, 120);
 }
-.visual .main-text .overlap-text {
+.visual .overlap-text {
   position: relative;
   width: fit-content;
   overflow: hidden;
   opacity: 0;
 }
-.visual .main-text .overlap-text::after {
+.visual .overlap-text::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(68, 63, 58);
+  background: #eee;
 }
-.visual .main-text .d01 {
+.visual .d01 {
   letter-spacing: 7px;
   font-size: 1.2rem;
   margin-bottom: 50px;
 }
-.visual .main-text .d02 {
+.visual .d02 {
   font-size: calc(2rem + 4.5vw);
   font-family: "DM Serif Display", serif;
   line-height: 1;
@@ -677,7 +609,7 @@ header .menu-right select {
   white-space: nowrap;
   position: relative;
 }
-.visual .main-text .d03 {
+.visual .d03 {
   color: #eee;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -752,40 +684,6 @@ header .menu-right select {
   align-items: center;
   gap: 7rem;
 }
-.history .history-img {
-  flex: 1 1 60rem;
-  position: relative;
-  overflow: hidden;
-}
-.history .history-img img {
-  width: 100%;
-}
-.history .history-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(181, 149, 120);
-}
-.history .history-txt {
-  width: 30%;
-  flex: 1 1 40rem;
-}
-.history .history-txt * {
-  margin-bottom: 30px;
-  opacity: 0;
-  transform: translateY(25%);
-}
-.history .history-txt h3 {
-  font-size: 1.8rem;
-  font-weight: 400;
-}
-.history .history-txt p {
-  line-height: 1.5;
-  white-space: pre-line;
-}
 .history.motion .history-img::after {
   animation-name: pilloff;
   animation-duration: 0.7s;
@@ -823,6 +721,42 @@ header .menu-right select {
   animation-fill-mode: forwards;
 }
 
+.history-img {
+  flex: 1 1 60rem;
+  position: relative;
+  overflow: hidden;
+}
+.history-img img {
+  width: 100%;
+}
+.history-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(181, 149, 120);
+}
+
+.history-txt {
+  width: 30%;
+  flex: 1 1 40rem;
+}
+.history-txt * {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(25%);
+}
+.history-txt h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.history-txt p {
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
 .selection,
 .collection {
   position: relative;
@@ -836,8 +770,10 @@ header .menu-right select {
   width: 40%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5rem;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .selection .titlentab .selection-tab li a,
 .collection .titlentab .selection-tab li a {
@@ -1411,37 +1347,6 @@ header .menu-right select {
   background: red;
 }
 
-.banner {
-  width: 100%;
-  position: relative;
-}
-.banner .banner-content {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-.banner .banner-content p {
-  font-size: 3.5rem;
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 400;
-  color: #eee;
-  text-transform: uppercase;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
-  margin-bottom: 3rem;
-}
-.banner .banner-content a {
-  width: 180px;
-  display: block;
-  margin: 0 auto;
-  color: #eee;
-  border: 1px solid #eee;
-}
-
 .footer {
   background-color: rgb(231, 230, 227);
   padding: 4rem 17%;
@@ -1505,7 +1410,111 @@ header .menu-right select {
   font-size: 0.9rem;
 }
 
+.btn-primary {
+  display: inline-block;
+  height: 48px;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  border: 1px solid rgb(181, 149, 120);
+  color: rgb(181, 149, 120);
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Readex Pro", sans-serif;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.btn-primary::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(181, 149, 120);
+  z-index: -1;
+  transition: transform 0.7s ease-out;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+}
+.btn-primary:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.btn-primary:hover {
+  color: #eee;
+  transition: all 0.7s;
+}
+
+.bgcolor {
+  width: 70%;
+  height: 100vh;
+  background: rgb(231, 230, 227);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+section {
+  padding: 6rem 6%;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 85px;
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+}
+.banner .banner-content {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.banner .banner-content p {
+  font-size: 3.5rem;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  color: #eee;
+  text-transform: uppercase;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+.banner .banner-content a {
+  width: 180px;
+  display: block;
+  margin: 0 auto;
+  color: #eee;
+  border: 1px solid #eee;
+}
+
+@media (max-width: 1024px) {
+  header .menu a {
+    margin: 0 1rem;
+  }
+  header .menu-right .menu-icons {
+    margin-right: 0;
+  }
+}
 @media (max-width: 768px) {
+  .menu-right .menu-icons {
+    display: none;
+  }
+  .shops .shop-container {
+    grid-template-rows: 250px 250px;
+  }
   .footer-left {
     flex-direction: column;
     align-items: stretch;
@@ -1564,14 +1573,14 @@ header .menu-right select {
   .history .history-txt h3 {
     font-size: 1.5rem;
   }
-  .titlentab {
+  .selection .titlentab {
     margin-bottom: 36px;
   }
-  .selection-tab {
+  .selection .titlentab .selection-tab {
     min-width: 55%;
     flex-direction: column;
     align-items: center;
-    gap: 22px;
+    gap: 2rem;
   }
   .shops .shop-container {
     grid-template-rows: repeat(3, 170px);
