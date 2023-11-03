@@ -55,6 +55,10 @@
           }
         }
       }
+
+      @include tablet {
+        gap: 2rem;
+      }
     }
   }
 
