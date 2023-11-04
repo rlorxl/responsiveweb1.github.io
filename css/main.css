@@ -506,7 +506,7 @@ h2 {
 }
 @keyframes pilloff-1 {
   100% {
-    transform: translate(100%);
+    transform: translate(101%);
   }
 }
 @keyframes fadein {
@@ -665,11 +665,43 @@ h2 {
   position: relative;
   top: 100px;
   height: 100vh;
-  background: url("../images/main-1.png") no-repeat;
-  background-size: calc(300px + 25vw);
-  background-position: calc(50% + 25vw);
   margin-bottom: 200px;
+}
+.visual .main-carousel {
+  position: absolute;
+  width: calc(500px + 25vw);
+  height: 80%;
+  top: 55%;
+  right: 0;
+  transform: translate(0, -50%);
   overflow: hidden;
+}
+.visual .carousel-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 100px;
+  overflow: hidden;
+}
+.visual .carousel-item {
+  flex-shrink: 0;
+  opacity: 0;
+}
+.visual .carousel-item.active {
+  animation-name: fadein;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.visual .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 .visual .main-text {
   width: 50%;

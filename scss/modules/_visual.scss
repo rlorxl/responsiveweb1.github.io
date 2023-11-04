@@ -2,21 +2,43 @@
   position: relative;
   top: 100px;
   height: 100vh;
-  background: url('../images/main-1.png') no-repeat;
-  background-size: calc(300px + 25vw);
-  background-position: calc(50% + 25vw);
   margin-bottom: 200px;
-  overflow: hidden;
 
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 4%;
-  //   width: calc(300px + 26vw);
-  //   height: 100%;
-  //   background: $brown;
-  // }
+  .main-carousel {
+    position: absolute;
+    width: calc(500px + 25vw);
+    height: 80%;
+    top: 55%;
+    right: 0;
+    transform: translate(0, -50%);
+    overflow: hidden;
+    // background: pink;
+  }
+
+  .carousel-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 100px;
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    flex-shrink: 0;
+    opacity: 0;
+
+    &.active {
+      @include animation(fadein, 0.8s, ease-in-out);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
 
   .main-text {
     width: 50%;

@@ -9,7 +9,7 @@
 
 @include keyframe(pilloff-1) {
   100% {
-    transform: translate(100%);
+    transform: translate(101%); // 100%가 마지막에 선이 살짝 보여서 101%로
   }
 }
 
