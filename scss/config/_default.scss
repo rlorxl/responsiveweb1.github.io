@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nanum+Myeongjo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nanum+Myeongjo&display=swap");
 
 //reset
 body {
   position: relative;
   -webkit-font-smoothing: antialiased;
-  // overflow: hidden;
+  cursor: none;
 }
 html,
 body,
@@ -131,10 +131,10 @@ button {
 
 //style
 $font-weights: (
-  'light': 300,
-  'regular': 400,
-  'medium': 500,
-  'bold': 700,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
 );
 $dark: #222;
 $black: rgb(68, 63, 58);
@@ -167,7 +167,7 @@ button {
 }
 
 html {
-  font-family: 'Readex Pro', sans-serif;
+  font-family: "Readex Pro", sans-serif;
   // color: #555;
   color: #eee;
   line-height: 1.2;
@@ -175,7 +175,7 @@ html {
 }
 
 h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: "DM Serif Display", serif;
 }
 
 @mixin boxShadow($dir, $ver, $blur, $num) {

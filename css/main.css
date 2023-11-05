@@ -10,6 +10,7 @@
 body {
   position: relative;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
 }
 
 html,
@@ -174,6 +175,7 @@ h2 {
 body {
   position: relative;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
 }
 
 html,
@@ -338,6 +340,7 @@ h2 {
 body {
   position: relative;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
 }
 
 html,
@@ -669,9 +672,9 @@ h2 {
 }
 .visual .main-carousel {
   position: absolute;
-  width: calc(500px + 25vw);
+  width: calc(500px + 28vw);
   height: 80%;
-  top: 55%;
+  top: 50%;
   right: 0;
   transform: translate(0, -50%);
   overflow: hidden;
@@ -688,10 +691,12 @@ h2 {
 .visual .carousel-item {
   flex-shrink: 0;
   opacity: 0;
+  max-width: 1200px;
+  position: relative;
 }
 .visual .carousel-item.active {
   animation-name: fadein;
-  animation-duration: 0.8s;
+  animation-duration: 0.9s;
   animation-timing-function: ease-in-out;
   animation-delay: 0;
   animation-iteration-count: 1;
@@ -701,7 +706,39 @@ h2 {
 .visual .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+}
+.visual .carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(181, 149, 120);
+  animation-name: pilloff;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.visual .slider {
+  position: absolute;
+  left: 4%;
+  bottom: 25%;
+}
+.visual .slider-item {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #eee;
+  transform: rotate(45deg);
+  margin-right: 8px;
+}
+.visual .slider-item.on {
+  background: #eee;
 }
 .visual .main-text {
   width: 50%;
@@ -1583,6 +1620,59 @@ h2 {
 .btn-primary:hover {
   color: #eee;
   transition: all 0.7s;
+}
+
+.cursor-default {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.8;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor-small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: rgb(181, 149, 120);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  opacity: 0;
+}
+
+.cursor-left {
+  background: url("../images/arrow-left.png") no-repeat;
+}
+.cursor-left.active {
+  opacity: 1;
+}
+
+.cursor-right {
+  background: url("../images/arrow-right.png") no-repeat;
+}
+.cursor-right.active {
+  opacity: 1;
 }
 
 .bgcolor {

@@ -1,7 +1,7 @@
-@import './config/default';
-@import './config/media';
-@import './config/mixin';
-@import './modules';
+@import "./config/default";
+@import "./config/media";
+@import "./config/mixin";
+@import "./modules";
 
 .btn-primary {
   display: inline-block;
@@ -13,13 +13,13 @@
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
-  font-family: 'Readex Pro', sans-serif;
+  font-family: "Readex Pro", sans-serif;
   position: relative;
   overflow: hidden;
   cursor: pointer;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -42,6 +42,59 @@
   }
 }
 
+.cursor-default {
+  position: fixed; // absolute X
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.8;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor-small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: $brown;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  opacity: 0;
+}
+
+.cursor-left {
+  background: url("../images/arrow-left.png") no-repeat;
+  &.active {
+    opacity: 1;
+  }
+}
+
+.cursor-right {
+  background: url("../images/arrow-right.png") no-repeat;
+  &.active {
+    opacity: 1;
+  }
+}
+
 .bgcolor {
   width: 70%;
   height: 100vh;
@@ -57,7 +110,7 @@ section {
 
 h2 {
   font-size: 3.5rem;
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: "Nanum Myeongjo", serif;
   font-weight: 400;
   text-align: center;
   margin-bottom: 85px;
@@ -174,7 +227,7 @@ h2 {
 
     p {
       font-size: 3.5rem;
-      font-family: 'Nanum Myeongjo', serif;
+      font-family: "Nanum Myeongjo", serif;
       font-weight: 400;
       color: $white;
       text-transform: uppercase;

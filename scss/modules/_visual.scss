@@ -6,13 +6,12 @@
 
   .main-carousel {
     position: absolute;
-    width: calc(500px + 25vw);
+    width: calc(500px + 28vw);
     height: 80%;
-    top: 55%;
+    top: 50%;
     right: 0;
     transform: translate(0, -50%);
     overflow: hidden;
-    // background: pink;
   }
 
   .carousel-list {
@@ -28,15 +27,46 @@
   .carousel-item {
     flex-shrink: 0;
     opacity: 0;
+    max-width: 1200px;
+    position: relative;
 
     &.active {
-      @include animation(fadein, 0.8s, ease-in-out);
+      @include animation(fadein, 0.9s, ease-in-out);
     }
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $brown;
+      @include animation(pilloff, 0.7s, ease-in);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    left: 4%;
+    bottom: 25%;
+  }
+
+  .slider-item {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $white;
+    transform: rotate(45deg);
+    margin-right: 8px;
+    &.on {
+      background: $white;
     }
   }
 
@@ -56,7 +86,7 @@
     opacity: 0;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -74,7 +104,7 @@
 
   .d02 {
     font-size: calc(2rem + 4.5vw);
-    font-family: 'DM Serif Display', serif;
+    font-family: "DM Serif Display", serif;
     line-height: 1;
     margin-bottom: 40px;
     letter-spacing: 3px;
