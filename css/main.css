@@ -154,11 +154,13 @@ img {
 a {
   text-decoration: none;
   color: rgb(68, 63, 58);
+  cursor: none;
 }
 
 button {
   border: 0;
   background: transparent;
+  cursor: none;
 }
 
 html {
@@ -319,11 +321,13 @@ img {
 a {
   text-decoration: none;
   color: rgb(68, 63, 58);
+  cursor: none;
 }
 
 button {
   border: 0;
   background: transparent;
+  cursor: none;
 }
 
 html {
@@ -484,11 +488,13 @@ img {
 a {
   text-decoration: none;
   color: rgb(68, 63, 58);
+  cursor: none;
 }
 
 button {
   border: 0;
   background: transparent;
+  cursor: none;
 }
 
 html {
@@ -648,7 +654,7 @@ h2 {
     color: #eee;
   }
   .header .backdrop {
-    display: block;
+    display: none;
     opacity: 0;
     width: 100vw;
     height: 100vh;
@@ -660,6 +666,7 @@ h2 {
     transition: all 0.5s ease-in-out;
   }
   .header .backdrop.on {
+    display: block;
     opacity: 1;
   }
 }
@@ -667,13 +674,13 @@ h2 {
 .visual {
   position: relative;
   top: 100px;
+  width: 95%;
   height: 100vh;
   margin-bottom: 200px;
 }
 .visual .main-carousel {
   position: absolute;
-  width: calc(500px + 28vw);
-  height: 80%;
+  width: calc(500px + 26vw);
   top: 50%;
   right: 0;
   transform: translate(0, -50%);
@@ -683,20 +690,20 @@ h2 {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 100px;
   overflow: hidden;
 }
 .visual .carousel-item {
   flex-shrink: 0;
-  opacity: 0;
   max-width: 1200px;
+  opacity: 0;
   position: relative;
 }
 .visual .carousel-item.active {
   animation-name: fadein;
-  animation-duration: 0.9s;
+  animation-duration: 1.2s;
   animation-timing-function: ease-in-out;
   animation-delay: 0;
   animation-iteration-count: 1;
@@ -741,11 +748,12 @@ h2 {
   background: #eee;
 }
 .visual .main-text {
-  width: 50%;
+  width: 35%;
   margin-top: 155px;
   position: absolute;
   top: 0;
   left: 4%;
+  order: -1;
   color: rgb(181, 149, 120);
 }
 .visual .overlap-text {
@@ -844,6 +852,34 @@ h2 {
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: forwards;
+}
+@media (max-width: 960px) {
+  .visual .main-carousel {
+    width: calc(400px + 28vw);
+  }
+}
+@media (max-width: 700px) {
+  .visual .main-carousel {
+    width: calc(300px + 28vw);
+  }
+}
+@media (max-width: 450px) {
+  .visual .slider {
+    display: none;
+  }
+  .visual .main-carousel {
+    width: 94%;
+    height: 25%;
+    top: 24%;
+  }
+  .visual .main-carousel img {
+    width: 55%;
+  }
+  .visual .main-text {
+    width: 100%;
+    top: 30%;
+    margin-top: 110px;
+  }
 }
 
 .history {
@@ -1014,7 +1050,6 @@ h2 {
   height: 350px;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
 }
 .selection .slider .slider-wrap .inner-slide .item .selection-tmb img,
 .collection .slider .slider-wrap .inner-slide .item .selection-tmb img {
@@ -1053,7 +1088,6 @@ h2 {
   background-color: chocolate;
   text-indent: -9999px;
   margin: 0 0.5rem;
-  cursor: pointer;
   transition: all 0.5s;
 }
 .selection .slider .slider-wrap .inner-slide .item .selection-tmb .icons a:nth-child(1),
@@ -1110,7 +1144,6 @@ h2 {
 .collection .arrow {
   position: absolute;
   top: 50%;
-  cursor: pointer;
 }
 .selection .prev,
 .collection .prev {
@@ -1531,7 +1564,6 @@ h2 {
 .footer a {
   color: rgb(111, 91, 68);
   font-size: 0.9rem;
-  cursor: pointer;
 }
 .footer .footer-gnb {
   display: flex;
@@ -1574,7 +1606,6 @@ h2 {
   background: rgb(111, 91, 68);
   padding: 0.5rem 0.8rem;
   color: #eee;
-  cursor: pointer;
 }
 .footer .copyrightText {
   text-align: center;
@@ -1597,7 +1628,6 @@ h2 {
   font-family: "Readex Pro", sans-serif;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 .btn-primary::before {
   content: "";
@@ -1685,7 +1715,7 @@ h2 {
 }
 
 section {
-  padding: 6rem 6%;
+  padding: 6rem 4rem;
 }
 
 h2 {
@@ -1856,6 +1886,9 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .btn-primary {
+    padding: 10px 30px;
+  }
   .shops .shop-container {
     grid-template-rows: 250px 250px;
   }
@@ -1877,7 +1910,7 @@ h2 {
     padding: 3.5rem 6%;
   }
   .bgcolor {
-    height: 85vh;
+    background: transparent;
   }
   .header {
     padding: 2rem 2rem;
@@ -1885,18 +1918,22 @@ h2 {
   .header .menu {
     display: none;
   }
-  .logo-container img {
-    max-width: 100px;
+  .header .logo-container a {
+    font-size: 2rem;
   }
-  .logo-container ul {
+  .header .logo-container ul {
     display: none;
+  }
+  .menu-mobile {
+    top: 40px;
   }
   .visual {
     top: 0px;
     margin-bottom: 0;
     background-size: calc(200px + 25vw);
   }
-  .visual .main-text {
+  .visual .main-text,
+  .visual .slider {
     left: 9%;
   }
   .history {

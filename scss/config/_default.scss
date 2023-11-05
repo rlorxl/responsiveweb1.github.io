@@ -149,21 +149,27 @@ ul,
 li {
   list-style: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 img {
   max-width: 100%;
   border: 0;
 }
+
 a {
   text-decoration: none;
   color: $black;
+  cursor: none;
 }
+
 button {
   border: 0;
   background: transparent;
+  cursor: none;
 }
 
 html {

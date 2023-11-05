@@ -3,8 +3,7 @@
   const $slideItems = document.querySelectorAll(".carousel-item");
   const $cursorLeft = document.querySelector(".cursor-left");
   const $cursorRight = document.querySelector(".cursor-right");
-  // const $cursor = document.querySelector(".cursor-default");
-  // const $cursor_s = document.querySelector(".cursor-small");
+  const $sliderItem = document.querySelectorAll(".slider-item");
 
   const currentMargin = 100;
   const slideCount = $slideItems.length;
@@ -53,7 +52,7 @@
     $innerSlide.style.transform = `translateX(-${totalMoveWidth}px)`; // (전체너비 + 움직일 너비)로 값을 지정해야 현재 위치에서 움직일 너비를 더하는게 된다.
     $slideItems.forEach(item => item.classList.remove("active"));
     $slideItems[slideCount + currentIdx].classList.add("active");
-    $innerSlide.style.transition = "0.1s ease-in-out"; // transitionend이벤트 때문에 0.1초 트랜지션을 준다.
+    $innerSlide.style.transition = "0.1s ease-in-out"; // transitionend이벤트 트리거를 위한 0.1s 트랜지션 추가.
   };
 
   const prevSlide = idx => {
@@ -69,6 +68,19 @@
     $slideItems.forEach(item => item.classList.remove("active"));
     $slideItems[slideCount + currentIdx].classList.add("active");
     $innerSlide.style.transition = "0.1s ease-in-out";
+  };
+
+  const setPointer = () => {
+    const currentSlide = document.querySelector(".active");
+    if (!currentSlide) return;
+
+    $sliderItem.forEach(slider => {
+      if (slider.dataset.id === currentSlide.dataset.id) {
+        slider.classList.add("on");
+      } else {
+        slider.classList.remove("on");
+      }
+    });
   };
 
   const reset = () => {
@@ -89,17 +101,25 @@
     isMoving = false;
   });
 
-  $cursorLeft?.addEventListener("click", () => {
-    if (isMoving) returrn;
+  $cursorRight?.addEventListener("click", () => {
+    if (interval) clearInterval(interval);
+    if (isMoving) return;
     nextSlide(currentIdx + 1);
+    setPointer();
     isMoving = true;
+    interval = setInterval(() => nextSlide(currentIdx + 1), 5000);
   });
 
-  $cursorRight?.addEventListener("click", () => {
+  $cursorLeft?.addEventListener("click", () => {
+    if (interval) clearInterval(interval);
     if (isMoving) return;
     prevSlide(currentIdx - 1);
-    isMoving = false;
+    setPointer();
+    isMoving = true;
+    interval = setInterval(() => nextSlide(currentIdx + 1), 5000);
   });
+
+  let interval = setInterval(() => nextSlide(currentIdx + 1), 5000);
 
   window.addEventListener("DOMContentLoaded", reset);
 })();

@@ -7,7 +7,6 @@
   a {
     color: rgb(111, 91, 68);
     font-size: 0.9rem;
-    cursor: pointer;
   }
   .footer-gnb {
     display: flex;
@@ -41,15 +40,14 @@
           border: none;
           outline: none;
         }
-        input[type='email'] {
+        input[type="email"] {
           background: transparent;
           padding: 0.5rem;
         }
-        input[type='submit'] {
+        input[type="submit"] {
           background: rgb(111, 91, 68);
           padding: 0.5rem 0.8rem;
           color: $white;
-          cursor: pointer;
         }
       }
     }

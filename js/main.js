@@ -54,7 +54,7 @@ $(function () {
     const rect = currentSlide.getBoundingClientRect();
     const leftSide = rect.left + rect.width / 2;
 
-    // 메인 캐러셀 커서
+    // 메인슬라이드 커서에 적용
     // prettier-ignore
     if (
       mouseY >= rect.top && 
@@ -85,4 +85,19 @@ $(function () {
       $cursor.style.display = "block";
     }
   });
+
+  // 버튼 호버시 커서스타일
+  $button = document.querySelectorAll(".btn-primary");
+  $button.forEach(btn =>
+    btn.addEventListener("mouseenter", () => {
+      $cursor.style.transition = "transform 0.4s ease";
+      $cursor.style.transform = "scale(230%)";
+    }),
+  );
+  $button.forEach(btn =>
+    btn.addEventListener("mouseleave", () => {
+      $cursor.style.transition = "none";
+      $cursor.style.transform = "scale(100%)";
+    }),
+  );
 });

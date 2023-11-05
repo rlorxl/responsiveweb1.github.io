@@ -10,7 +10,7 @@
   z-index: 100;
 
   .logo {
-    font-family: 'DM Serif Display', serif;
+    font-family: "DM Serif Display", serif;
     font-size: 4rem;
     color: $white;
   }
@@ -113,7 +113,7 @@
     }
 
     .backdrop {
-      display: block;
+      display: none;
       opacity: 0;
       width: 100vw;
       height: 100vh;
@@ -125,6 +125,7 @@
       transition: all 0.5s ease-in-out;
 
       &.on {
+        display: block;
         opacity: 1;
       }
     }

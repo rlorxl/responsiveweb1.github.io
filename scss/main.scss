@@ -16,7 +16,6 @@
   font-family: "Readex Pro", sans-serif;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 
   &::before {
     content: "";
@@ -105,7 +104,7 @@
 }
 
 section {
-  padding: 6rem 6%;
+  padding: 6rem 4rem;
 }
 
 h2 {
@@ -249,6 +248,10 @@ h2 {
 
 // tablet
 @include tablet {
+  .btn-primary {
+    padding: 10px 30px;
+  }
+
   .shops .shop-container {
     grid-template-rows: 250px 250px;
   }
@@ -275,30 +278,36 @@ h2 {
   }
 
   .bgcolor {
-    height: 85vh;
+    background: transparent;
   }
 
   .header {
     padding: 2rem 2rem;
+
     .menu {
       display: none;
     }
+
+    .logo-container {
+      a {
+        font-size: 2rem;
+      }
+      ul {
+        display: none;
+      }
+    }
   }
 
-  .logo-container {
-    img {
-      max-width: 100px;
-    }
-    ul {
-      display: none;
-    }
+  .menu-mobile {
+    top: 40px;
   }
 
   .visual {
     top: 0px;
     margin-bottom: 0;
     background-size: calc(200px + 25vw);
-    .main-text {
+    .main-text,
+    .slider {
       left: 9%;
     }
   }
