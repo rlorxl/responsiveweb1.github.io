@@ -121,5 +121,5 @@
 
   let interval = setInterval(() => nextSlide(currentIdx + 1), 5000);
 
-  window.addEventListener("DOMContentLoaded", reset);
+  window.addEventListener("load", reset);
 })();
